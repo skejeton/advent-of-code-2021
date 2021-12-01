@@ -24,18 +24,36 @@ fn int main() {
         items.append(value);
     }
     
-    long previous = 9999999;
-    long increased = 0;
-    
-    for (usize i = 0; i < items.size-2; i += 1) {
-        long item = items.get(i)+items.get(i+1)+items.get(i+2);
-        if (item > previous) {
-            increased += 1;
+        
+    {|
+        long previous = 9999999;
+        long increased = 0;
+        
+        for (usize i = 0; i < items.size; i += 1) {
+            long item = items.get(i);
+            if (item > previous) {
+                increased += 1;
+            }
+            previous = item;
         }
-        previous = item;
-    }
+        
+        io::printf("Part 1: %d\n", increased);
+    |};
     
-    io::printf("Part 1: %d\n", increased);
+    {|
+        long previous = 9999999;
+        long increased = 0;
+        
+        for (usize i = 0; i < items.size-2; i += 1) {
+            long item = items.get(i)+items.get(i+1)+items.get(i+2);
+            if (item > previous) {
+                increased += 1;
+            }
+            previous = item;
+        }
+        
+        io::printf("Part 2: %d\n", increased);
+    |};
     
     return 0;
 }
