@@ -34,7 +34,6 @@ fn long! nextInt(char **src) {
         *src += 1;
     }
     
-    
     if (*src == start) {
         return NumberError.INVALID_NUMBER!;
     }

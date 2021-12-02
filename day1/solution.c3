@@ -24,7 +24,6 @@ fn int main() {
         items.append(value);
     }
     
-        
     {|
         long previous = 9999999;
         long increased = 0;

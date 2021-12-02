@@ -28,6 +28,11 @@ fn void List.append(List *list, Type element)
     list.entries[list.size++] = element;
 }
 
+fn Type* List.getPtr(List *list, usize index)
+{
+    return &list.entries[index];
+}
+
 /**
  * @require list.size > 0
  */
@@ -108,7 +113,9 @@ fn Type List.get(List *list, usize index)
 
 fn void List.free(List *list)
 {
-    mem::free(list.entries);
+    if (list.entries) {
+        mem::free(list.entries);
+    }
     list.capacity = 0;
     list.size = 0;
 }
