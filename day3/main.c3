@@ -27,8 +27,6 @@ fn uint part2(UintList nums, uint bitcount, bool less) {
             setcount += (uint)(!(!(nums.get(i) & (1 << bit))));
         }
         uint unsetcount = (uint)(nums.size)-setcount;
-      
-
         
         if (nums.size == 1) {
             break;
@@ -36,10 +34,8 @@ fn uint part2(UintList nums, uint bitcount, bool less) {
 
         UintList newnums;
 
-        bool check = (bool)((uint)(setcount >= unsetcount)^(uint)(less));
-
         for (uint i = 0; i < nums.size; i += 1) {
-            if ((uint)(!(!(nums.get(i) & (1 << bit)))) ^ (uint)(~check)) {
+            if ((uint)(!(!(nums.get(i) & (1 << bit)))) ^ ((uint)(setcount >= unsetcount) ^ (uint)(less))) {
                 newnums.append(nums.get(i));
             }
         }
