@@ -40,3 +40,24 @@ fn long! nextInt(char **src) {
     
     return num;
 }
+
+fn uint! nextBinary(char **src) {
+    while (**src == ' ' || **src == '\t' || **src == '\n') {
+        *src += 1;
+    }
+
+    char *start = *src;
+    uint num = 0;
+
+
+    while (**src == '0' || **src == '1') {
+        num = (num * 2) + (uint)(**src - '0');
+        *src += 1;
+    }
+    
+    if (*src == start) {
+        return NumberError.INVALID_NUMBER!;
+    }
+    
+    return num;
+}

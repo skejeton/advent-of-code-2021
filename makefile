@@ -18,3 +18,11 @@ day2_c3:
 	./a.out
 	rm *.o
 	rm a.out
+	
+	
+day3_c3:
+	c3c compile day3/*.c3 lib/std/*.c3 lib/std/*/*.c3 lib/hashtable.c3 lib/libadvent.c3
+	clear
+	./a.out
+	rm *.o
+	rm a.out
